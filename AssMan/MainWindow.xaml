@@ -4,15 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AssMan"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:controls="clr-namespace:AssMan.Controls" DragDrop.DragEnter="WindowContainer_PreviewDrop" DragDrop.DragLeave="Window_DragLeave" DragDrop.Drop="Window_Drop"
         mc:Ignorable="d" WindowStyle="None" BorderThickness="0"
         Background="#F5111100" Loaded="Window_Loaded" ResizeMode="NoResize" Topmost="True"
-        Title="MainWindow" Height="800" Width="1200" AllowsTransparency="True"> 
+        Title="MainWindow" Height="800" Width="1145" AllowsTransparency="True"> 
 
-    <Grid Margin="20 15">
-        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Label FontSize="13" Padding="0" Foreground="#BBB" Margin="0 0 0 5">Ninponix Studios</Label>
-            <Label FontSize="20" Padding="0">BROWSE ASSETS</Label>
-        </StackPanel>
+    <Grid x:Name="WindowContainer" AllowDrop="True">
+        <Grid Margin="20 15">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Label FontSize="13" Padding="0" Foreground="#BBB" Margin="0 0 0 4">Ninponix Studios</Label>
+                <Label FontSize="20" Padding="0">BROWSE ASSETS</Label>
+            </StackPanel>
+
+            <StackPanel Opacity="0" x:Name="search_panel" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#110">
+                <Label FontSize="13" Padding="0" Foreground="#BBB" Margin="0 0 0 4">Showing search results for</Label>
+                <Label FontSize="20" Padding="0" x:Name="search_term_label"></Label>
+            </StackPanel>
+
+            <Grid x:Name="AssetView"  Margin="0 65 0 0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <WrapPanel x:Name="assets_container" Orientation="Horizontal">
+                        
+                    </WrapPanel>
+                </ScrollViewer>
+            </Grid>
+
+        </Grid>
+
+        <Grid x:Name="FileDropPreview" Background="#FF2E2E2E" Opacity="0" Focusable="False" IsHitTestVisible="False">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <fa:FontAwesome Icon="Upload" Foreground="White" FontSize="50" Margin="0 0 0 20"></fa:FontAwesome>
+                <Label FontSize="16">Drop to add new Asset</Label>
+            </StackPanel>
+        </Grid>
     </Grid>
 
 </Window>

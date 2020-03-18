@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="AssMan.Controls.AssetItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AssMan.Controls"
+             mc:Ignorable="d" Margin="5">
+    <Grid Background="#181800">
+        <StackPanel>
+            <Grid>
+                <Image x:Name="AssetImage_Image" Source="C:\Users\Chamuth\Desktop\sample.png" Width="128"></Image>
+            </Grid>
+            <StackPanel Margin="10">
+                <TextBlock FontFamily="Bahnschrift" Foreground="White" TextWrapping="Wrap" MaxWidth="128" TextAlignment="Center" x:Name="AssetTitle_Label">SwordTest</TextBlock>
+                <WrapPanel MaxWidth="115" HorizontalAlignment="Center" Margin="0 8 0 5" x:Name="categories_container">
+                </WrapPanel>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
